@@ -3,7 +3,7 @@ package dev.kaldiroglu.dp.creational.ch03.account.staticFactory;
 
 import dev.kaldiroglu.dp.creational.ch03.account.customer.Customer;
 
-public class Account implements Cloneable {
+public class Account1 {
 	protected String iban;
 	protected double balance;
 	protected double credit;
@@ -16,8 +16,8 @@ public class Account implements Cloneable {
 	/**
 	 * Creates an Account object with credit amount passed
 	 */
-	private Account(String iban, double balance, double credit, Customer owner, boolean openToWithdraw,
-				   boolean openToPayment, boolean openToTransfer) {
+	private Account1(String iban, double balance, double credit, Customer owner, boolean openToWithdraw,
+					 boolean openToPayment, boolean openToTransfer) {
 		this.iban = iban;
 		this.balance = balance;
 		this.credit = credit;
@@ -30,8 +30,8 @@ public class Account implements Cloneable {
 	/**
 	 * Creates an Account object with no credit
 	 */
-	private Account(String iban, double balance, Customer owner, boolean openToWithdraw,
-				   boolean openToPayment, boolean openToTransfer) {
+	private Account1(String iban, double balance, Customer owner, boolean openToWithdraw,
+					 boolean openToPayment, boolean openToTransfer) {
 		this.iban = iban;
 		this.balance = balance;
 		this.owner = owner;
@@ -43,22 +43,22 @@ public class Account implements Cloneable {
 	/**
 	 * Creates an account in a normal state
 	 */
-	public static Account createNormalAccount(String iban, double balance, double credit, Customer owner) {
-		return new Account(iban, balance, credit, owner, true, true, true);
+	public static Account1 createNormalAccount(String iban, double balance, double credit, Customer owner) {
+		return new Account1(iban, balance, credit, owner, true, true, true);
 	}
 
 	/**
 	 * Creates an account in a negative state
 	 */
-	public static Account createNegativeAccount(String iban, double balance, double credit, Customer owner) {
-		return new Account(iban, balance, credit, owner, true, false, false);
+	public static Account1 createNegativeAccount(String iban, double balance, double credit, Customer owner) {
+		return new Account1(iban, balance, credit, owner, true, false, false);
 	}
 
 	/**
 	 * Creates an account in a frozen state
 	 */
-	public static Account createFrozenAccount(String iban, double balance, double credit, Customer owner) {
-		return new Account(iban, balance, credit, owner, false, false, false);
+	public static Account1 createFrozenAccount(String iban, double balance, double credit, Customer owner) {
+		return new Account1(iban, balance, credit, owner, false, false, false);
 	}
 
 	public String getIban() {

@@ -1,9 +1,9 @@
 
-package dev.kaldiroglu.dp.creational.ch03.account.solution.solution2;
+package dev.kaldiroglu.dp.creational.ch03.account.copyConstructor;
 
 import dev.kaldiroglu.dp.creational.ch03.account.customer.Customer;
 
-public class Account implements Cloneable {
+public class Account {
 	protected String iban;
 	protected double balance;
 	protected double credit;
@@ -15,7 +15,7 @@ public class Account implements Cloneable {
 	private boolean openToTransfer;
 
 	public Account(String iban, double balance, double credit, Customer owner, boolean openToWithdraw,
-                   boolean openToPayment, boolean openToTransfer) {
+			boolean openToPayment, boolean openToTransfer) {
 		this.iban = iban;
 		this.balance = balance;
 		this.credit = credit;
@@ -23,6 +23,19 @@ public class Account implements Cloneable {
 		this.openToWithdraw = openToWithdraw;
 		this.openToPayment = openToPayment;
 		this.openToTransfer = openToTransfer;
+	}
+
+	public Account(Account other) {
+		if (other == null) {
+			throw new IllegalArgumentException("other must not be null");
+		}
+		this.iban = "-1"; // Make sure that a new id will be assigned
+		this.balance = other.balance;
+		this.credit = other.credit;
+		this.owner = null; // Make sure that a new owner will be assigned
+		this.openToWithdraw = other.openToWithdraw;
+		this.openToPayment = other.openToPayment;
+		this.openToTransfer = other.openToTransfer;
 	}
 
 	public String getIban() {
@@ -71,22 +84,6 @@ public class Account implements Cloneable {
 
 	public void setOpenToTransfer(boolean openToTransfer) {
 		this.openToTransfer = openToTransfer;
-	}
-
-	@Override
-	public Account clone() {
-		Account cloneAccount = null;
-		try {
-			// This creates a shallow copy of the existing Account object
-			cloneAccount = (Account) super.clone();
-			// Make sure that iban should be changed and a new owner is assigned!
-			cloneAccount.iban = "-1";
-			cloneAccount.owner = null;
-		} catch (CloneNotSupportedException e) {
-			System.out.println("Problem when cloning the object: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return cloneAccount;
 	}
 
 	@Override

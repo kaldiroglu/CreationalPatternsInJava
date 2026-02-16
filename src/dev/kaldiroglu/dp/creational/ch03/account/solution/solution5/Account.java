@@ -99,8 +99,11 @@ public class Account implements Cloneable {
 	public Account clone() {
 		Account cloneAccount = null;
 		try {
+			// This creates a shallow copy of the existing Account object
 			cloneAccount = (Account) super.clone();
+			// Make sure that iban should be changed and a new owner is assigned!
 			cloneAccount.iban = "-1";
+			cloneAccount.owner = null;
 		} catch (CloneNotSupportedException e) {
 			System.out.println("Problem when cloning the object: " + e.getMessage());
 			e.printStackTrace();

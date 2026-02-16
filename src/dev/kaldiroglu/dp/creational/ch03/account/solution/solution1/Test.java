@@ -12,11 +12,19 @@ public class Test {
 
 		// Another credit account in normal state. Credit amount is fixed at 1000.
 		Account anotherAccountInNormalState = accountInNormalState.clone();
+		System.out.println("*******************");
+		System.out.println(accountInNormalState);
+		System.out.println(anotherAccountInNormalState);
+		System.out.println("*******************\n");
+
 		// Change some of its state
 		anotherAccountInNormalState.setIban("2");
 		anotherAccountInNormalState.setBalance(2000);
 		anotherAccountInNormalState.setOwner(new Customer("Remzi"));
 		System.out.println("Account in normal state: " + anotherAccountInNormalState);
+
+		System.out.println(accountInNormalState);
+		System.out.println(anotherAccountInNormalState);
 
 		// Account in negative state
 		Account accountInNegativeState = accountInNormalState.clone();

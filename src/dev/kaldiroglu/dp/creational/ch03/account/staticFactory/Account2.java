@@ -1,9 +1,10 @@
 
-package dev.kaldiroglu.dp.creational.ch03.account.problem;
+package dev.kaldiroglu.dp.creational.ch03.account.staticFactory;
 
+import dev.kaldiroglu.dp.creational.ch03.account.copyConstructor.Account;
 import dev.kaldiroglu.dp.creational.ch03.account.customer.Customer;
 
-public class Account {
+public class Account2 {
 	protected String iban;
 	protected double balance;
 	protected double credit;
@@ -16,8 +17,8 @@ public class Account {
 	/**
 	 * Creates an Account object with credit amount passed
 	 */
-	public Account(String iban, double balance, double credit, Customer owner, boolean openToWithdraw,
-			boolean openToPayment, boolean openToTransfer) {
+	private Account2(String iban, double balance, double credit, Customer owner, boolean openToWithdraw,
+                     boolean openToPayment, boolean openToTransfer) {
 		this.iban = iban;
 		this.balance = balance;
 		this.credit = credit;
@@ -30,14 +31,32 @@ public class Account {
 	/**
 	 * Creates an Account object with no credit
 	 */
-	public Account(String iban, double balance, Customer owner, boolean openToWithdraw,
-				   boolean openToPayment, boolean openToTransfer) {
+	private Account2(String iban, double balance, Customer owner, boolean openToWithdraw,
+                     boolean openToPayment, boolean openToTransfer) {
 		this.iban = iban;
 		this.balance = balance;
 		this.owner = owner;
 		this.openToWithdraw = openToWithdraw;
 		this.openToPayment = openToPayment;
 		this.openToTransfer = openToTransfer;
+	}
+
+	/**
+	 * Creates a new Account2 object by copying the specified Account2 instance.
+	 * The new account will have the same balance, credit, and access properties as the
+	 * specified account but with a default IBAN and no owner assigned.
+	 *
+	 * @param other the Account2 instance to copy. Must not be null.
+	 * @return a new Account2 instance with the same balance, credit, and access properties as the specified account.
+	 * @throws IllegalArgumentException if the specified account is null.
+	 */
+	public static Account2 copy(Account2 other) {
+		if (other == null) {
+			throw new IllegalArgumentException("other must not be null");
+		}
+		// Make sure that a new id and owner will be assigned
+		Account2 newAccount = new Account2("-", other.balance, other.credit, null, other.openToWithdraw, other.openToPayment, other.openToTransfer);
+		return newAccount;
 	}
 
 	public String getIban() {
