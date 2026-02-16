@@ -1,135 +1,143 @@
 package dev.kaldiroglu.dp.creational.ch04.computer.domain;
 
 public class Computer {
-	private String name;
-	private CPU cpu;
-	private RAM ram;
-	private HardDrive hd;
-	private GraphicCard graphicCard;
-	private Display display;
-	private Keyboard keyboard;
-	private Mouse mouse;
-	
-	public Computer(){}
-	
-	public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard) {
-		this.name = name;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.hd = hd;
-		this.graphicCard = graphicCard;
-	}
-	
-	public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard, Display display) {
-		this.name = name;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.hd = hd;
-		this.graphicCard = graphicCard;
-		this.display = display;
-	}
+    private String name;
+    private CPU cpu;
+    private RAM ram;
+    private HardDrive hd;
+    private GraphicCard graphicCard;
+    private Display display;
+    private Keyboard keyboard;
+    private Mouse mouse;
 
-	public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard,
-			Display display, Keyboard keyboard) {
-		this.name = name;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.hd = hd;
-		this.graphicCard = graphicCard;
-		this.display = display;
-		this.keyboard = keyboard;
-	}
-	
-	public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard,
-			Display display, Keyboard keyboard, Mouse mouse) {
-		this.name = name;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.hd = hd;
-		this.graphicCard = graphicCard;
-		this.display = display;
-		this.keyboard = keyboard;
-		this.mouse = mouse;
-	}
+    public Computer() {
+    }
 
-	public void start() {
-		cpu.start();
-		ram.loadOSKernelImage();
-		ram.loadOS();
-		ram.loadDrivers();
-		ram.startServices();
-		hd.start();
-		graphicCard.start();
-		if(display != null)
-			display.start();
-		if(keyboard != null)
-			keyboard.start();
-		if(mouse != null)
-			mouse.start();
-		System.out.println("Computer " + name + " has started.\n");
-	}
+    public Computer(String name, CPU cpu, RAM ram, HardDrive hd) {
+        this.name = name;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hd = hd;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard) {
+        this.name = name;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hd = hd;
+        this.graphicCard = graphicCard;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard, Display display) {
+        this.name = name;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hd = hd;
+        this.graphicCard = graphicCard;
+        this.display = display;
+    }
 
-	public CPU getCpu() {
-		return cpu;
-	}
+    public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard,
+                    Display display, Keyboard keyboard) {
+        this.name = name;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hd = hd;
+        this.graphicCard = graphicCard;
+        this.display = display;
+        this.keyboard = keyboard;
+    }
 
-	public void setCpu(CPU cpu) {
-		this.cpu = cpu;
-	}
+    public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard,
+                    Display display, Keyboard keyboard, Mouse mouse) {
+        this.name = name;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hd = hd;
+        this.graphicCard = graphicCard;
+        this.display = display;
+        this.keyboard = keyboard;
+        this.mouse = mouse;
+    }
 
-	public RAM getRam() {
-		return ram;
-	}
+    public void start() {
+        cpu.start();
+        ram.loadOSKernelImage();
+        ram.loadOS();
+        ram.loadDrivers();
+        ram.startServices();
+        hd.start();
+        graphicCard.start();
+        if (display != null)
+            display.start();
+        if (keyboard != null)
+            keyboard.start();
+        if (mouse != null)
+            mouse.start();
+        System.out.println("Computer " + name + " has started.\n");
+    }
 
-	public void setRam(RAM ram) {
-		this.ram = ram;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public HardDrive getHd() {
-		return hd;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setHd(HardDrive hd) {
-		this.hd = hd;
-	}
+    public CPU getCpu() {
+        return cpu;
+    }
 
-	public GraphicCard getGraphicCard() {
-		return graphicCard;
-	}
+    public void setCpu(CPU cpu) {
+        this.cpu = cpu;
+    }
 
-	public void setGraphicCard(GraphicCard graphicCard) {
-		this.graphicCard = graphicCard;
-	}
+    public RAM getRam() {
+        return ram;
+    }
 
-	public Display getDisplay() {
-		return display;
-	}
+    public void setRam(RAM ram) {
+        this.ram = ram;
+    }
 
-	public void setDisplay(Display display) {
-		this.display = display;
-	}
+    public HardDrive getHd() {
+        return hd;
+    }
 
-	public Keyboard getKeyboard() {
-		return keyboard;
-	}
+    public void setHd(HardDrive hd) {
+        this.hd = hd;
+    }
 
-	public void setKeyboard(Keyboard keyboard) {
-		this.keyboard = keyboard;
-	}
+    public GraphicCard getGraphicCard() {
+        return graphicCard;
+    }
 
-	public Mouse getMouse() {
-		return mouse;
-	}
+    public void setGraphicCard(GraphicCard graphicCard) {
+        this.graphicCard = graphicCard;
+    }
 
-	public void setMouse(Mouse mouse) {
-		this.mouse = mouse;
-	}
+    public Display getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(Display display) {
+        this.display = display;
+    }
+
+    public Keyboard getKeyboard() {
+        return keyboard;
+    }
+
+    public void setKeyboard(Keyboard keyboard) {
+        this.keyboard = keyboard;
+    }
+
+    public Mouse getMouse() {
+        return mouse;
+    }
+
+    public void setMouse(Mouse mouse) {
+        this.mouse = mouse;
+    }
 }
