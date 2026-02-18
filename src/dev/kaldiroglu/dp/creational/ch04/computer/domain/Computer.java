@@ -20,14 +20,6 @@ public class Computer {
         this.hd = hd;
     }
 
-    public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard) {
-        this.name = name;
-        this.cpu = cpu;
-        this.ram = ram;
-        this.hd = hd;
-        this.graphicCard = graphicCard;
-    }
-
     public Computer(String name, CPU cpu, RAM ram, HardDrive hd, GraphicCard graphicCard, Display display) {
         this.name = name;
         this.cpu = cpu;

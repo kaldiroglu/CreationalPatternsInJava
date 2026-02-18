@@ -11,7 +11,7 @@ public class Test {
 		RAM ram1 = test.produceRAM();
 		HardDrive hd1 = test.produceHardDrive();
 		GraphicCard graphicCard1 = test.produceGraphicCard();
-		Computer computerWithoutDisplayKeyboardAndMouse = new Computer("computerWithoutDisplayKeyboardAndMouse", cpu1, ram1, hd1, graphicCard1);
+		Computer computerWithoutDisplayKeyboardAndMouse = new Computer("computerWithoutDisplayKeyboardAndMouse", cpu1, ram1, hd1);
 		computerWithoutDisplayKeyboardAndMouse.start();
 
 		System.out.println("***************");

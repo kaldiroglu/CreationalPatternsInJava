@@ -8,7 +8,12 @@ public class Director {
     }
 
     public void create(){
-        builder.buildPart();
+        while(hasMoreParts())
+            builder.buildPart();
         Product product = builder.getResult();
+    }
+
+    private boolean hasMoreParts(){
+        return true;
     }
 }
