@@ -1,8 +1,6 @@
 
 package dev.kaldiroglu.dp.creational.ch05.simple;
 
-import dev.kaldiroglu.dp.creational.ch05.threadedLazy.ThreadedLazySingleton;
-
 public class SingletonClient {
 
 	public static void main(String[] args) {

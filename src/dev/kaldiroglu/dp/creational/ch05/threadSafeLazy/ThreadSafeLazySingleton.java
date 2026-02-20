@@ -23,7 +23,7 @@ public class ThreadSafeLazySingleton {
         synchronized (ThreadSafeLazySingleton.class) {
             if (singleton == null) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

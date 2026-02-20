@@ -1,6 +1,7 @@
 package dev.kaldiroglu.dp.creational.ch05.enumeration;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 public enum EnumSingleton implements Serializable{
 
@@ -15,4 +16,6 @@ public enum EnumSingleton implements Serializable{
 	public static EnumSingleton getInstance() {
 		return SINGLETON;
 	}
+	Calendar cal1 = Calendar.getInstance();
+	Calendar cal2 = Calendar.getInstance();
 }

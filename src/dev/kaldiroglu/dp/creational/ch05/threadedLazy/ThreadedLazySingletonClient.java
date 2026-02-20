@@ -2,10 +2,11 @@ package dev.kaldiroglu.dp.creational.ch05.threadedLazy;
 
 public class ThreadedLazySingletonClient extends Thread {
 
-	public static void main(String[] args) {
-		for(int i = 0; i < 1000; i++){
+	public static void main(String[] args) throws InterruptedException {
+		for(int i = 0; i < 100; i++){
 			new ThreadedLazySingletonClient().start();
 		}
+		Thread.sleep(5000);
 		System.out.println("Number of objects: " + ThreadedLazySingleton.getInstanceCount());
 	}
 	

@@ -19,7 +19,7 @@ public class UpdatableSingleton {
 		return updatableSingleton;
 	}
 	
-	public synchronized void updateProduct(String threadName, String name, Integer price) throws InterruptedException{
+	public void updateProduct(String threadName, String name, Integer price) throws InterruptedException{
 		System.out.println(threadName + " ==> Price for " + name + " before update: " + getPrice(name));
 		Thread.sleep(100);
 		products.put(name, price);

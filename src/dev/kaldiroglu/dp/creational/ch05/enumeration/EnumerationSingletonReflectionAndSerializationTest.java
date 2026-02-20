@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 public class EnumerationSingletonReflectionAndSerializationTest {
 
 	public static void main(String[] args) {
-		checkReflection();
+//		checkReflection();
 		checkSerialization();
 	}
 	

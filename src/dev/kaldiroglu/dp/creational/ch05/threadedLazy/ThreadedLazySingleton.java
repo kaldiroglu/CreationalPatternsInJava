@@ -19,17 +19,17 @@ public class ThreadedLazySingleton {
 //			throw new RuntimeException(e);
 //		}
 
-//		if (singleton == null) {
-//			try {
-//				Thread.sleep(1);
-//			} catch (InterruptedException e) {
-//				throw new RuntimeException(e);
-//			}
-//			singleton = new ThreadedLazySingleton();
-//		}
-
-		if (singleton == null)
+		if (singleton == null) {
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e);
+			}
 			singleton = new ThreadedLazySingleton();
+		}
+
+//		if (singleton == null)
+//			singleton = new ThreadedLazySingleton();
 
 		return singleton;
 	}
